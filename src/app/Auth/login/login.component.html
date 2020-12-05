@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="authForm" (ngSubmit)="submit()">
+        <h2>Portal do Aluno</h2>
+        <mat-error *ngIf="error">
+            {{error}}
+        </mat-error>
+        <mat-form-field class="full-width-input">
+            <input matInput placeholder="CPF" formControlName="cpf" required>
+            <mat-error>
+            Digite seu CPF
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+            <input matInput type="password" placeholder="Password" formControlName="password" required>
+            <mat-error>
+            Digite uma senha válida
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Login</button>
+        </form>
+    </mat-card-content>
+</mat-card>
