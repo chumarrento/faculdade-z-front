@@ -9,14 +9,7 @@ import { LoginService } from '../login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(
-    private FormBuilder: FormBuilder,
-    private loginService: LoginService,
-    private router: Router
-  ) {}
-
-  public error: string
+  public error: string | undefined
 
   public authForm = this.FormBuilder.group({
     cpf: [
@@ -30,6 +23,13 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required]
   })
 
+  constructor(
+    private FormBuilder: FormBuilder,
+    private loginService: LoginService,
+    private router: Router
+  ) {}
+
+  
   ngOnInit(): void {}
 
   submit() {
