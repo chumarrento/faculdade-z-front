@@ -19,4 +19,11 @@ export class AppService {
   getCurrentSemesterInfo(): Observable<Discipline[]> {
     return this.httpClient.get<Discipline[]>(`${this.API_URL}/students/me/current-semester-info`);
   }
+
+  postFeedbackMessage(feedback: { message: string }) {
+    return this.httpClient.post(
+      `${this.API_URL}/feedback`,
+      feedback
+    )
+  }
 }

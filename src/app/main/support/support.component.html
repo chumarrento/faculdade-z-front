@@ -1,1 +1,14 @@
-<p>support works!</p>
+<h2>Suporte</h2>
+<hr>
+<p>
+    Deixe sua mensagem de feedback!
+</p>
+
+<form class="support-form" [formGroup]="supportForm" (ngSubmit)="submit()">
+    <mat-form-field class="support-full-width">
+        <mat-label>Mensagem</mat-label>
+        <textarea matInput formControlName="message" placeholder="Ex. Gostaria de parabenizar.." required></textarea>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Enviar</button>
+</form>
+  

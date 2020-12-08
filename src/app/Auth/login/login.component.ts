@@ -11,7 +11,7 @@ import { LoginService } from '../login.service';
 export class LoginComponent implements OnInit {
   public error: string | undefined
 
-  public authForm = this.FormBuilder.group({
+  public authForm = this.formBuilder.group({
     cpf: [
       '',
       [
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   })
 
   constructor(
-    private FormBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     private loginService: LoginService,
     private router: Router
   ) {}

@@ -10,6 +10,10 @@ import { DisciplineCardComponent } from './disciplines/discipline-card/disciplin
 import { MatCardModule } from '@angular/material/card';
 import { SchoolRecordComponent } from './school-record/school-record.component';
 import { SupportComponent } from './support/support.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,12 @@ import { SupportComponent } from './support/support.component'
     MainRoutingModule,
     MatToolbarModule,
     FontAwesomeModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class MainModule { }
