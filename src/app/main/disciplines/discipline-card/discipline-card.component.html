@@ -1,0 +1,21 @@
+<mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{discipline?.discipline_name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+          <li>Dificuldade: {{discipline?.discipline_difficulty}}</li>
+          <li>Professor: {{discipline?.discipline_teacher}}</li>
+          <li>Nota: {{discipline?.final_grade}}</li>
+          <li>Status: {{discipline?.status}}</li>
+      </ul>
+      <p>
+          Horários
+
+          Dia: {{discipline?.discipline_schedule?.weekday}}
+          Início: {{discipline?.discipline_schedule?.start_time}}
+          Encerramento: {{discipline?.discipline_schedule?.end_time}}
+      </p>
+    </mat-card-content>
+</mat-card>
+  

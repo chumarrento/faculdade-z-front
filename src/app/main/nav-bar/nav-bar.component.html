@@ -1,0 +1,26 @@
+<nav>
+    <mat-toolbar class="nav-bar">
+        <a routerLink="/main">
+            Faculdade Z
+        </a>
+        <a routerLink="/main/school-record" class="nav-bar-button">
+            Histórico
+        </a>
+        <a routerLink="/main/support" class="nav-bar-button">
+            Suporte
+        </a>
+        <span class="example-spacer"></span>
+        <div class="dropdown">
+            <button class="dropdown-button">
+                <h3>{{currentStudent?.name}}
+                    <fa-icon [icon]="faCaretDown"></fa-icon>
+                </h3>
+            </button>
+            <div class="dropdown-content">
+                <li>{{ currentStudent?.course?.name }}</li>
+                <li>{{ currentStudent?.current_semester }}º período</li>
+            </div>
+        </div>
+    </mat-toolbar>
+
+</nav>

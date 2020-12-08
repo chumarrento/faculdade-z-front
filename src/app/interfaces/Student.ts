@@ -1,6 +1,6 @@
 import { Course } from './Course';
 
-export type User = {
+export type Student = {
     id: number
     name: string
     cpf: string,
