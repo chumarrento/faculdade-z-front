@@ -1,21 +1,24 @@
-<mat-card class="card">
-    <mat-card-header>
-      <mat-card-title>{{discipline?.discipline_name}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <ul>
-          <li>Dificuldade: {{discipline?.discipline_difficulty}}</li>
-          <li>Professor: {{discipline?.discipline_teacher}}</li>
-          <li>Nota: {{discipline?.final_grade}}</li>
-          <li>Status: {{discipline?.status}}</li>
-      </ul>
-      <p>
-          Horários
-
-          Dia: {{discipline?.discipline_schedule?.weekday}}
-          Início: {{discipline?.discipline_schedule?.start_time}}
-          Encerramento: {{discipline?.discipline_schedule?.end_time}}
-      </p>
-    </mat-card-content>
-</mat-card>
+<div>
+  <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>{{discipline?.discipline_name}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <ul>
+            <h3>Informações</h3>
+            <li> <fa-icon [icon]="faBrain"></fa-icon> Dificuldade: {{discipline?.discipline_difficulty}}</li>
+            <li> <fa-icon [icon]="faChalkboardTeacher"></fa-icon> Professor: {{discipline?.discipline_teacher}}</li>
+            <li> <fa-icon [icon]="faGraduationCap"></fa-icon> Nota: {{discipline?.final_grade ? discipline?.final_grade : '-'}}</li>
+            <li> <fa-icon [icon]="faClipboard"></fa-icon> Status: {{discipline?.status}}</li>
+        </ul>
+        <ul class="schedule-list">
+            <h3><fa-icon [icon]="faCalendarAlt"></fa-icon> Horários</h3>
+  
+            <li>Dia: {{discipline?.discipline_schedule?.weekday}}</li>
+            <li>Início: {{discipline?.discipline_schedule?.start_time}}</li>
+            <li>Encerramento: {{discipline?.discipline_schedule?.end_time}}</li>
+        </ul>
+      </mat-card-content>
+  </mat-card>
+</div>
   
