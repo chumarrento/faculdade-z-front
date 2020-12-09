@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Discipline } from 'src/app/interfaces/Discipline';
+import { SchoolRecord } from 'src/app/interfaces/SchoolRecord';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -24,6 +25,10 @@ export class AppService {
     return this.httpClient.post(
       `${this.API_URL}/feedback`,
       feedback
-    )
+    );
+  }
+
+  getSchoolRecord(): Observable<SchoolRecord[]> {
+    return this.httpClient.get<SchoolRecord[]>(`${this.API_URL}/students/me/school-records`);
   }
 }

@@ -14,6 +14,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { SemesterComponent } from './school-record/semester/semester.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDividerModule } from '@angular/material/divider'
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { MatButtonModule } from '@angular/material/button';
     DisciplinesComponent,
     DisciplineCardComponent,
     SchoolRecordComponent,
-    SupportComponent
+    SupportComponent,
+    SemesterComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +39,10 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatExpansionModule,
+    MatDividerModule,
+    MatListModule
   ]
 })
 export class MainModule { }

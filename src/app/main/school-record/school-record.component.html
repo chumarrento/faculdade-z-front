@@ -1,1 +1,3 @@
-<p>school-record works!</p>
+<h1>Histórico Escolar</h1>
+<hr>
+<app-semester *ngFor="let schoolRecord of schoolRecords" [semester]="schoolRecord.semester" [disciplines]="schoolRecord.disciplines"></app-semester>

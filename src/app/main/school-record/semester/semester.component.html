@@ -1,0 +1,23 @@
+<mat-accordion>
+    <mat-expansion-panel class="accordion" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ semester }} º Período
+        </mat-panel-title>
+        <mat-panel-description>
+          Lista de disciplinas do período
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-list class="disciplines-list">
+            <mat-list-item *ngFor="let discipline of disciplines">
+                <li mat-line>{{discipline.discipline_name}}</li>
+                <div class="discipline-info">
+                    <div mat-line>Professor: {{discipline.discipline_teacher}}</div>
+                    <div mat-line>Status: {{discipline.status}}</div>
+                    <div mat-line>Nota: {{discipline.final_grade ? discipline.final_grade : '-'}}</div>
+                </div>
+                <mat-divider></mat-divider>
+          </mat-list-item>
+      </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>
