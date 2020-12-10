@@ -14,11 +14,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MainModule } from './main/main.module';
 import { AuthGuard } from './Auth/auth.guard';
 import { TokenInterceptor } from './main/interceptors/token.interceptor';
+import { AlertComponent } from './alert/alert.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { TokenInterceptor } from './main/interceptors/token.interceptor';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
+    MatSnackBarModule
   ],
   providers: [
     AuthGuard,
