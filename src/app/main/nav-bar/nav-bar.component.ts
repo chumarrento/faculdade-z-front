@@ -17,10 +17,13 @@ export class NavBarComponent implements OnInit {
     private router: Router,
     private loginService: LoginService
   ) {
-    this.loginService.currentUser.subscribe((student: Student) => this.currentStudent = student);
+    this.loginService.currentStudent.subscribe((student: Student) => this.currentStudent = student);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  logout() {
+    this.loginService.logout()
+    this.router.navigateByUrl('/login')
+  }
 }

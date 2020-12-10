@@ -18,6 +18,8 @@ import { SemesterComponent } from './school-record/semester/semester.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider'
 import {MatListModule} from '@angular/material/list';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {MatListModule} from '@angular/material/list';
     DisciplineCardComponent,
     SchoolRecordComponent,
     SupportComponent,
-    SemesterComponent
+    SemesterComponent,
+    MyProfileComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,8 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     MatExpansionModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ]
 })
 export class MainModule { }

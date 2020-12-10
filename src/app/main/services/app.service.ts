@@ -31,4 +31,12 @@ export class AppService {
   getSchoolRecord(): Observable<SchoolRecord[]> {
     return this.httpClient.get<SchoolRecord[]>(`${this.API_URL}/students/me/school-records`);
   }
+
+  updatePassword(data: { old_password: string, new_password: string, new_password_confirmation: string }) {
+    return this.httpClient.put(`${this.API_URL}/students/me/change-password`, data)
+  }
+
+  updateMe(data: { name: string, email: string, cpf: string}) {
+    return this.httpClient.put(`${this.API_URL}/students/me`, data)
+  }
 }

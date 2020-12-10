@@ -1,0 +1,42 @@
+section {
+    margin: 20px;
+}
+
+fieldset {
+    border: 0;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.button-submit {
+    align-self: center;
+}
+
+.security-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.security-form button {
+    align-self: center;
+}
+
+mat-divider {
+    margin-bottom: 20px;
+}

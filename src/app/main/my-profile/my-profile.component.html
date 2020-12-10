@@ -1,0 +1,77 @@
+<h1>Informações Pessoais</h1>
+<mat-divider></mat-divider>
+<section>
+    <mat-icon>edit</mat-icon>
+    <h2>Editar seus dados</h2>
+    <p>
+        Aqui você pode alterar dados disponíveis para edição.
+    </p>
+    
+    <form [formGroup]="editProfileForm" class="profile-form" (ngSubmit)="updateStudent()">
+        <div class="row">
+            <fieldset class="column">
+                <mat-form-field appearance="legacy">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="name" type="text" placeholder="João da Silva" value="{{student?.name}}">
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" type="email" placeholder="exemplo@email.com" value="{{student?.email}}">
+                    <mat-icon matSuffix>{{false ? 'done' : 'clear'}}</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>CPF</mat-label>
+                    <input matInput formControlName="cpf" type="text" placeholder="000.000.000-00" value="{{student?.cpf}}">
+                </mat-form-field>
+            </fieldset>
+            <fieldset class="column">
+                <mat-form-field appearance="legacy">
+                    <mat-label>Curso</mat-label>
+                    <input matInput type="text" readonly value="{{student?.course?.name}}">
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Período</mat-label>
+                    <input matInput type="text" readonly value="{{student?.current_semester}}">
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Matrícula</mat-label>
+                    <input matInput type="text" readonly value="{{student?.registration}}">
+                </mat-form-field>
+            </fieldset>
+        </div>
+        <button class="button-submit" type="submit" mat-raised-button color="warn">Alterar Dados</button>
+    </form>
+    <mat-divider></mat-divider>
+    <mat-icon>lock</mat-icon>
+    <h2>Segurança</h2>
+    <p>Gerencie sua senha, troque se achar necessário.</p>
+    
+    <form [formGroup]="securityForm" class="security-form" (ngSubmit)="securitySubmit()">
+        <div class="row">
+            <fieldset class="column">
+                <mat-form-field appearance="legacy">
+                    <mat-label>Senha Antiga</mat-label>
+                    <input matInput formControlName="old_password" [type]="hideOldPass ? 'password' : 'text'">
+                    <button mat-icon-button type="button" matSuffix (click)="hideOldPass = !hideOldPass">
+                    <mat-icon>{{hideOldPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Nova Senha</mat-label>
+                    <input matInput formControlName="new_password" [type]="hideNewPass ? 'password' : 'text'">
+                    <button mat-icon-button type="button" matSuffix (click)="hideNewPass = !hideNewPass">
+                    <mat-icon>{{hideNewPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Confirmação da nova senha</mat-label>
+                    <input matInput formControlName="new_password_confirmation" [type]="hideNewPassConfirmation ? 'password' : 'text'">
+                    <button mat-icon-button type="button" matSuffix (click)="hideNewPassConfirmation = !hideNewPassConfirmation">
+                    <mat-icon>{{hideNewPassConfirmation ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </fieldset>
+        </div>
+        <button type="submit" mat-raised-button color="warn">Alterar Senha</button>
+    </form>
+</section>

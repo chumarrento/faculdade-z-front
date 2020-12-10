@@ -10,7 +10,7 @@ import { Alert } from '../interfaces/Alert';
   styleUrls: ['./alert.component.scss']
 })
 export class AlertComponent implements OnInit, OnDestroy {
-  private subscription: Subscription
+  private subscription: Subscription | undefined
   alert: Alert | any
 
   constructor(
@@ -43,6 +43,6 @@ export class AlertComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe()
+    this.subscription?.unsubscribe()
   }
 }

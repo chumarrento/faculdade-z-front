@@ -20,16 +20,16 @@ type LoginResultTypes = {
 })
 export class LoginService {
   readonly API_URL = environment.API_URL
-  private currentUserSubject: BehaviorSubject<Student>
-  public currentUser: Observable<Student>
+  private currentStudentSubject: BehaviorSubject<Student>
+  public currentStudent: Observable<Student>
 
   constructor(private httpClient: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<Student>(JSON.parse(localStorage.getItem('currentStudent') || '{}'));
-    this.currentUser = this.currentUserSubject.asObservable()
+    this.currentStudentSubject = new BehaviorSubject<Student>(JSON.parse(sessionStorage.getItem('currentStudent') || '{}'));
+    this.currentStudent = this.currentStudentSubject.asObservable()
   }
 
-  public get currentUserValue () {
-    return this.currentUserSubject.value
+  public get currentStudentValue () {
+    return this.currentStudentSubject.value
   }
 
   login(credentials: LoginTypes) {
@@ -38,7 +38,7 @@ export class LoginService {
       .pipe(
         tap((response: LoginResultTypes) => {
           sessionStorage.setItem('token', response.token)
-          localStorage.setItem('currentStudent', JSON.stringify(response.user))
+          sessionStorage.setItem('currentStudent', JSON.stringify(response.user))
         })
       );
   }
@@ -49,6 +49,6 @@ export class LoginService {
 
   logout(): void {
     sessionStorage.removeItem('token');
-    localStorage.removeItem('currentStudent');
+    sessionStorage.removeItem('currentStudent');
   }
 }
