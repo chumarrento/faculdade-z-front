@@ -19,7 +19,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDividerModule } from '@angular/material/divider'
 import {MatListModule} from '@angular/material/list';
 import { MyProfileComponent } from './my-profile/my-profile.component';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { DisciplinesFilterPipe } from './filters/disciplines-filter.pipe'
+import { MatRadioModule } from '@angular/material/radio';
+import { DisciplineComponent } from './school-record/discipline/discipline.component'
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { MatIconModule } from '@angular/material/icon'
     SchoolRecordComponent,
     SupportComponent,
     SemesterComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    DisciplinesFilterPipe,
+    DisciplineComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +51,8 @@ import { MatIconModule } from '@angular/material/icon'
     MatExpansionModule,
     MatDividerModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatRadioModule
   ]
 })
 export class MainModule { }

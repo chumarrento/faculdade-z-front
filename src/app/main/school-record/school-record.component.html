@@ -1,3 +1,19 @@
 <h1>Histórico Escolar</h1>
 <hr>
-<app-semester *ngFor="let schoolRecord of schoolRecords" [semester]="schoolRecord.semester" [disciplines]="schoolRecord.disciplines"></app-semester>
+<div class="school-rec-filter">
+    <mat-form-field appearance="outline">
+        <mat-label>Filtro</mat-label>
+        <input matInput [(ngModel)]="searchText" [readonly]="radioFilter === undefined ? true : false">
+    </mat-form-field>
+    <mat-radio-group [(ngModel)]="radioFilter" (change)="changeFilter($event)">
+        <label class="radio-margin">Filtrar por:</label>
+        <mat-radio-button class="radio-margin" value="disciplines-radio">Disciplinas</mat-radio-button>
+        <mat-radio-button class="radio-margin" value="semester">Período</mat-radio-button>
+    </mat-radio-group>
+</div>
+<section *ngIf="radioFilter === undefined || radioFilter === 'semester'">
+    <app-semester *ngFor="let schoolRecord of schoolRecords | filter: searchText : false" [semester]="schoolRecord.semester" [disciplines]="schoolRecord.disciplines"></app-semester>
+</section>
+<section *ngIf="radioFilter === 'disciplines-radio'">
+    <app-discipline *ngFor="let discipline of disciplines | filter: searchText : true" [discipline]="discipline"></app-discipline>
+</section>

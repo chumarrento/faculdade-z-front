@@ -9,7 +9,8 @@ import { AppService } from '../services/app.service';
 })
 export class DisciplinesComponent implements OnInit {
   disciplines: Discipline[]
-
+  searchText: string = ""
+  
   constructor(private service: AppService) {
     this.disciplines = []
   }

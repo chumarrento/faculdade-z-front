@@ -1,3 +1,9 @@
 <h1>Disciplinas</h1>
 <hr>
-<app-discipline-card *ngFor="let discipline of disciplines" [discipline]="discipline"></app-discipline-card>
+<div class="filter-disciplines">
+    <mat-form-field appearance="outline">
+        <mat-label>Filtro de disciplinas</mat-label>
+        <input [(ngModel)]="searchText" matInput>
+    </mat-form-field>
+</div>
+<app-discipline-card *ngFor="let discipline of disciplines | filter: searchText : true" [discipline]="discipline"></app-discipline-card>

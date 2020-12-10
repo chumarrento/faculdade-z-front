@@ -1,0 +1,15 @@
+<div>
+    <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>{{discipline?.discipline_name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+          <ul>
+              <li>  Professor: {{discipline?.discipline_teacher}}</li>
+              <li>Período: {{discipline?.semester}}</li>
+              <li>  Nota: {{discipline?.final_grade ? discipline?.final_grade : '-'}}</li>
+              <li>  Status: {{discipline?.status}}</li>
+          </ul>
+        </mat-card-content>
+    </mat-card>
+</div>

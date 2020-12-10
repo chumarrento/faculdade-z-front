@@ -2,3 +2,12 @@ h1 {
     font-size: 20pt;
     color: #000;
 }
+
+.filter-disciplines {
+    display: flex;
+    justify-content: center;
+}
+
+.filter-disciplines > mat-form-field {
+    width: 600px;
+}
