@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/alert/alert.service';
 import { AppService } from '../services/app.service';
 
 @Component({
@@ -17,21 +18,23 @@ export class SupportComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private service: AppService
+    private appService: AppService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {}
 
   submit () {
     if(!this.supportForm.invalid) {
-      this.service.postFeedbackMessage(this.supportForm.value).subscribe(
+      this.appService.postFeedbackMessage(this.supportForm.value).subscribe(
         () => {
+          this.alertService.success('Mensagem enviada com sucesso!')
           setTimeout(() => {
             this.router.navigateByUrl('main');
-          }, 2000);
+          }, 1000);
         },
-        (response) => {
-          console.log(response)
+        () => {
+          this.alertService.error('Ocorreu um erro ao tentar enviar a mensagem.')
         }
       )
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/alert/alert.service';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -9,8 +10,6 @@ import { LoginService } from '../login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public error: string | undefined
-
   public authForm = this.formBuilder.group({
     cpf: [
       '',
@@ -26,7 +25,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService
   ) {}
 
   
@@ -40,10 +40,7 @@ export class LoginComponent implements OnInit {
         }, 1000);
       },
       response => {
-        this.error = response.error.message;
-        setTimeout(() => {
-          this.error = "";
-        }, 5000);
+        this.alertService.error(response.error.message)
       }
     )
   }

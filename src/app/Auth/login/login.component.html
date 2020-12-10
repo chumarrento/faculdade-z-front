@@ -2,9 +2,6 @@
     <mat-card-content>
         <form [formGroup]="authForm" (ngSubmit)="submit()">
         <h2>Portal do Aluno</h2>
-        <mat-error *ngIf="error">
-            {{error}}
-        </mat-error>
         <mat-form-field class="full-width-input">
             <input matInput placeholder="CPF" formControlName="cpf" required>
             <mat-error>
