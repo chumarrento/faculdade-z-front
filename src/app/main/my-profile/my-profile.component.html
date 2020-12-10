@@ -17,7 +17,14 @@
                 <mat-form-field appearance="legacy">
                     <mat-label>Email</mat-label>
                     <input matInput formControlName="email" type="email" placeholder="exemplo@email.com" value="{{student?.email}}">
-                    <mat-icon matSuffix>{{false ? 'done' : 'clear'}}</mat-icon>
+                    <mat-icon 
+                        matSuffix #tooltip 
+                        matTooltip="{{student?.email_verified_at ? 'E-email verificado' : 'E-mail não confirmado'}}"
+                        matTooltipPosition="right"
+                        matTooltipHideDelay="100"
+                        >
+                        {{student?.email_verified_at ? 'done' : 'clear'}}
+                    </mat-icon>
                 </mat-form-field>
                 <mat-form-field appearance="legacy">
                     <mat-label>CPF</mat-label>

@@ -39,4 +39,14 @@ export class AppService {
   updateMe(data: { name: string, email: string, cpf: string}) {
     return this.httpClient.put(`${this.API_URL}/students/me`, data)
   }
+
+  downloadSchoolRecordReport() {
+    return this.httpClient.get(`${this.API_URL}/students/me/school-records/report`, {
+      responseType: 'blob' as 'json'
+    })
+  }
+
+  sendSchoolRecordReportToEmail() {
+    return this.httpClient.get(`${this.API_URL}/students/me/school-records/report?email=true`)
+  }
 }

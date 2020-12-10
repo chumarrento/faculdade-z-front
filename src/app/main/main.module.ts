@@ -23,7 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { DisciplinesFilterPipe } from './filters/disciplines-filter.pipe'
 import { MatRadioModule } from '@angular/material/radio';
 import { DisciplineComponent } from './school-record/discipline/discipline.component'
-
+import { MatTooltipModule } from '@angular/material/tooltip'
 @NgModule({
   declarations: [
     MainComponent,
@@ -52,7 +52,8 @@ import { DisciplineComponent } from './school-record/discipline/discipline.compo
     MatDividerModule,
     MatListModule,
     MatIconModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTooltipModule
   ]
 })
 export class MainModule { }
