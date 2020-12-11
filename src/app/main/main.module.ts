@@ -24,7 +24,9 @@ import { DisciplinesFilterPipe } from './filters/disciplines-filter.pipe'
 import { MatRadioModule } from '@angular/material/radio';
 import { DisciplineComponent } from './school-record/discipline/discipline.component'
 import { MatTooltipModule } from '@angular/material/tooltip'
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
+import { DisciplineModalComponent } from './disciplines/discipline-modal/discipline-modal.component'
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { NgxMaskModule } from 'ngx-mask'
     SemesterComponent,
     MyProfileComponent,
     DisciplinesFilterPipe,
-    DisciplineComponent
+    DisciplineComponent,
+    DisciplineModalComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +59,8 @@ import { NgxMaskModule } from 'ngx-mask'
     MatIconModule,
     MatRadioModule,
     MatTooltipModule,
-    NgxMaskModule.forChild()
+    NgxMaskModule.forChild(),
+    MatDialogModule
   ]
 })
 export class MainModule { }

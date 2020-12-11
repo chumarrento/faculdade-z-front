@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>{{data.discipline.discipline_name}}</h1>
+<div mat-dialog-content>
+  <mat-list>
+    <div mat-subheader>Informações</div>
+    <mat-list-item>
+      <div mat-line>Professor: {{ data.discipline.discipline_teacher }}</div>
+      <div mat-line>Nota: {{ data.discipline.final_grade ? data.discipline.final_grade : '-' }}</div>
+      <div mat-line>Status: {{ data.discipline.status }}</div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div mat-subheader>Horários</div>
+    <mat-list-item>
+      <div mat-line>Dia: {{ data.discipline.discipline_schedule?.weekday }}</div>
+      <div mat-line>Início: {{ data.discipline.discipline_schedule?.start_time }}</div>
+      <div mat-line>Encerramento:{{ data.discipline.discipline_schedule?.end_time }}</div>
+    </mat-list-item>
+  </mat-list>
+  
+</div>
+<div mat-dialog-actions id="dialog-buttons">
+  <button mat-button mat-dialog-close>Fechar</button>
+</div>
