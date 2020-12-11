@@ -19,6 +19,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoaderComponent } from './loader/loader.component';
 import { NgxLoadingModule } from 'ngx-loading';
 import { LoaderInterceptor } from './loader/loader.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { LoaderInterceptor } from './loader/loader.interceptor';
   providers: [
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

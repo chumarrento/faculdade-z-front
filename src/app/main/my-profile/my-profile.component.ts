@@ -75,8 +75,9 @@ export class MyProfileComponent implements OnInit {
         () => {
           this.alertService.success('Senha alterada com sucesso!')
         },
-        () => {
-          this.alertService.error('Ocorreu um erro ao tentar alterar a senha :(')
+        (err) => {
+          let message = err.error.message ? err.error.message : 'Ocorreu um erro ao tentar alterar a senha :('
+          this.alertService.error(message)
         }
       )
     }
