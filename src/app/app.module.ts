@@ -15,13 +15,17 @@ import { MainModule } from './main/main.module';
 import { AuthGuard } from './Auth/auth.guard';
 import { TokenInterceptor } from './main/interceptors/token.interceptor';
 import { AlertComponent } from './alert/alert.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoaderComponent } from './loader/loader.component';
+import { NgxLoadingModule } from 'ngx-loading';
+import { LoaderInterceptor } from './loader/loader.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +39,15 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxLoadingModule.forRoot({
+      fullScreenBackdrop: true
+    })
   ],
   providers: [
     AuthGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
