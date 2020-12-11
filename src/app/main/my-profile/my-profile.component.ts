@@ -18,7 +18,7 @@ export class MyProfileComponent implements OnInit {
   hideOldPass = true
   hideNewPass = true
   hideNewPassConfirmation = true
-  student: Student | undefined
+  student: Student | null
 
   passwordNotMatched = false
 
@@ -40,7 +40,8 @@ export class MyProfileComponent implements OnInit {
     private appService: AppService,
     private alertService: AlertService
   ) { 
-    this.loginService.currentStudent.subscribe((student: Student) => this.student = student)
+    this.student = null
+    this.loginService.currentStudent.subscribe((student: Student | null) => this.student = student)
   }
 
   ngOnInit(): void {

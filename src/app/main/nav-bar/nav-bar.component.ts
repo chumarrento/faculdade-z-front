@@ -11,13 +11,14 @@ import { Student } from 'src/app/interfaces/Student';
 })
 export class NavBarComponent implements OnInit {
   faCaretDown = faCaretDown;
-  currentStudent: Student | undefined
+  currentStudent: Student | null
 
   constructor(
     private router: Router,
     private loginService: LoginService
   ) {
-    this.loginService.currentStudent.subscribe((student: Student) => this.currentStudent = student);
+    this.currentStudent = null
+    this.loginService.currentStudent.subscribe((student: Student | null) => this.currentStudent = student);
   }
 
   ngOnInit(): void {}

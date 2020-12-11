@@ -41,8 +41,8 @@ export class SchoolRecordComponent implements OnInit {
     )
 
     this.loginService.currentStudent.subscribe(
-      (student: Student) => {
-        this.emailDisabled = !student.email_verified_at ? true : false
+      (student: Student | null) => {
+        this.emailDisabled = !student?.email_verified_at ? true : false
       }
     )
   }
