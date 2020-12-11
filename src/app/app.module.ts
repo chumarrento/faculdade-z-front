@@ -43,7 +43,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     MatSnackBarModule,
     NgxLoadingModule.forRoot({
       fullScreenBackdrop: true
-    })
+    }),
+    NgxMaskModule.forRoot()
   ],
   providers: [
     AuthGuard,

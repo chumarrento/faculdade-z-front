@@ -24,6 +24,8 @@ import { DisciplinesFilterPipe } from './filters/disciplines-filter.pipe'
 import { MatRadioModule } from '@angular/material/radio';
 import { DisciplineComponent } from './school-record/discipline/discipline.component'
 import { MatTooltipModule } from '@angular/material/tooltip'
+import { NgxMaskModule } from 'ngx-mask'
+
 @NgModule({
   declarations: [
     MainComponent,
@@ -53,7 +55,8 @@ import { MatTooltipModule } from '@angular/material/tooltip'
     MatListModule,
     MatIconModule,
     MatRadioModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgxMaskModule.forChild()
   ]
 })
 export class MainModule { }

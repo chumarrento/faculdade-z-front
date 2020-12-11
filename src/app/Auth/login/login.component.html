@@ -3,7 +3,7 @@
         <form [formGroup]="authForm" (ngSubmit)="submit()">
         <h2>Portal do Aluno</h2>
         <mat-form-field class="full-width-input">
-            <input matInput placeholder="CPF" formControlName="cpf" required>
+            <input matInput placeholder="CPF" formControlName="cpf" mask="000.000.000-00" required>
             <mat-error>
             Digite seu CPF
             </mat-error>
